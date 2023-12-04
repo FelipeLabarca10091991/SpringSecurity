@@ -2,7 +2,7 @@ package com.fl.SpringSecurity.modelo;
 
 import java.util.Collection;
 
-import org.springframework.aot.generate.GenerationContext;
+
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -36,7 +36,7 @@ public class Usuario {
 	@JoinTable(
 			name="usuario_roles",
 			joinColumns = @JoinColumn(name = "usuario_id", referencedColumnName ="id"),
-			inverseJoinColumns = @JoinColumn(name="rol_id",referencedColumnName="id_rol")
+			inverseJoinColumns = @JoinColumn(name="rol_id",referencedColumnName="id")
 			)
 	private Collection<Rol> roles;
 
@@ -100,6 +100,16 @@ public class Usuario {
 
 	public Usuario() {
 		super();
+	}
+
+	public Usuario(Long id, String nombre, String apellido, String email, String password, Collection<Rol> roles) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.email = email;
+		this.password = password;
+		this.roles = roles;
 	}
 
 }

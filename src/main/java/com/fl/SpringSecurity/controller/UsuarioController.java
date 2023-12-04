@@ -3,6 +3,7 @@ package com.fl.SpringSecurity.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.fl.SpringSecurity.DTO.UsuarioRegistroDTO;
@@ -29,6 +30,7 @@ public class UsuarioController {
 		return "registro";
 	}
 	
+	@PostMapping
 	public String registrarCuentaUsuario(@ModelAttribute("usuario") UsuarioRegistroDTO registroDTO) {
 		userService.save(registroDTO);
 		return "redirect:/registro?exito";

@@ -2,6 +2,8 @@ package com.fl.SpringSecurity.service;
 
 import java.util.Arrays;
 
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.fl.SpringSecurity.DTO.UsuarioRegistroDTO;
@@ -31,6 +33,13 @@ public class UsuarioServiceImpl implements IUsuarioService{
 				Arrays.asList(new Rol("ROLE_USER")));
 		
 		return usuarioRepository.save(usuario);
+	}
+
+
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 
