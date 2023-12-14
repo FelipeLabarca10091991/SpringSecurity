@@ -1,8 +1,7 @@
 package com.fl.SpringSecurity.modelo;
 
 import java.util.Collection;
-
-
+import java.util.List;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -27,8 +26,6 @@ public class Usuario {
 
 	@Column(name = "nombre")
 	private String nombre;
-	@Column(name = "apellido")
-	private String apellido;
 	private String email;
 	private String password;
 	
@@ -38,7 +35,7 @@ public class Usuario {
 			joinColumns = @JoinColumn(name = "usuario_id", referencedColumnName ="id"),
 			inverseJoinColumns = @JoinColumn(name="rol_id",referencedColumnName="id")
 			)
-	private Collection<Rol> roles;
+	private List<Authority> Authorities;
 
 	public Long getId() {
 		return id;
@@ -54,14 +51,6 @@ public class Usuario {
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
-	}
-
-	public String getApellido() {
-		return apellido;
-	}
-
-	public void setApellido(String apellido) {
-		this.apellido = apellido;
 	}
 
 	public String getEmail() {
@@ -81,35 +70,23 @@ public class Usuario {
 	}
 
 	
-	public Collection<Rol> getRoles() {
-		return roles;
+	public List<Authority> getRoles() {
+		return Authorities;
 	}
 
-	public void setRoles(Collection<Rol> roles) {
-		this.roles = roles;
+	public void setRoles(List<Authority> roles) {
+		this.Authorities = roles;
 	}
 
-	public Usuario(String nombre, String apellido, String email, String password, Collection<Rol> roles) {
+	public Usuario(String nombre, String email, String password, List<Authority> roles) {
 		super();
 		this.nombre = nombre;
-		this.apellido = apellido;
 		this.email = email;
 		this.password = password;
-		this.roles = roles;
+		this.Authorities = roles;
 	}
 
-	public Usuario() {
-		super();
-	}
+	
 
-	public Usuario(Long id, String nombre, String apellido, String email, String password, Collection<Rol> roles) {
-		super();
-		this.id = id;
-		this.nombre = nombre;
-		this.apellido = apellido;
-		this.email = email;
-		this.password = password;
-		this.roles = roles;
-	}
-
+	
 }

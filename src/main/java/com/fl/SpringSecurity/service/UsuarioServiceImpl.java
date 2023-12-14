@@ -7,17 +7,17 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.fl.SpringSecurity.DTO.UsuarioRegistroDTO;
-import com.fl.SpringSecurity.modelo.Rol;
+import com.fl.SpringSecurity.modelo.Authority;
 import com.fl.SpringSecurity.modelo.Usuario;
-import com.fl.SpringSecurity.repository.IUsuarioRepository;
+import com.fl.SpringSecurity.repository.UsuarioRepository;
 
 @Service
-public class UsuarioServiceImpl implements IUsuarioService{
+public class UsuarioServiceImpl implements UsuarioService{
 	
-	private IUsuarioRepository usuarioRepository;
+	private UsuarioRepository usuarioRepository;
 
 	
-	public UsuarioServiceImpl(IUsuarioRepository usuarioRepository) {
+	public UsuarioServiceImpl(UsuarioRepository usuarioRepository) {
 		super();
 		this.usuarioRepository = usuarioRepository;
 	}
@@ -27,20 +27,19 @@ public class UsuarioServiceImpl implements IUsuarioService{
 	public Usuario save(UsuarioRegistroDTO usuarioDTO) {
 		Usuario usuario = new Usuario(
 				usuarioDTO.getNombre(),
-				usuarioDTO.getApellido(),
 				usuarioDTO.getEmail(),
 				usuarioDTO.getPassword(),
-				Arrays.asList(new Rol("ROLE_USER")));
+				Arrays.asList(new Authority()));
 		
 		return usuarioRepository.save(usuario);
 	}
 
 
-	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		// TODO Auto-generated method stub
-		return null;
-	}
+//	@Override
+//	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
 
 
 	

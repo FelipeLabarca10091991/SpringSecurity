@@ -5,7 +5,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import com.fl.SpringSecurity.DTO.UsuarioRegistroDTO;
 import com.fl.SpringSecurity.modelo.Usuario;
 
-public interface IUsuarioService extends UserDetailsService{
+public interface UsuarioService {
 
 	public Usuario save(UsuarioRegistroDTO usuarioDTO);
 }

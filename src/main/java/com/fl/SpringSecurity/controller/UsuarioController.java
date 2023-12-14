@@ -7,15 +7,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.fl.SpringSecurity.DTO.UsuarioRegistroDTO;
-import com.fl.SpringSecurity.service.IUsuarioService;
+import com.fl.SpringSecurity.service.UsuarioService;
 
 @Controller
 @RequestMapping("/registro")
 public class UsuarioController {
 
-	private IUsuarioService userService;
+	private UsuarioService userService;
 
-	public UsuarioController(IUsuarioService userService) {
+	public UsuarioController(UsuarioService userService) {
 		super();
 		this.userService = userService;
 	}
