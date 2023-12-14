@@ -24,6 +24,7 @@ public class SecurityConfiguration {
 	}
 	
 //Manejo de las contraseñas con PasswordEncoder. Solo fines de prueba(No recomendable para producción)
+//Actualizar
 	public PasswordEncoder passwordEncoder() {
 		return NoOpPasswordEncoder.getInstance();
 	}
